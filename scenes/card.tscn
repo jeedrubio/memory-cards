@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://djq2peb3eeo3r"]
+
+[ext_resource type="Script" uid="uid://brls0lnn5kshr" path="res://scripts/card.gd" id="1_6u4wf"]
+[ext_resource type="Texture2D" uid="uid://c4ejcxj4tpg4a" path="res://assets/back_card.png" id="1_d81rb"]
+[ext_resource type="Texture2D" uid="uid://bbh0k18k8thl8" path="res://assets/pokemon/25.png" id="2_ktuci"]
+[ext_resource type="AnimationLibrary" uid="uid://dswgi61p2ie0g" path="res://assets/animations.res" id="4_kg30u"]
+[ext_resource type="Texture2D" uid="uid://b27qgfnarojxw" path="res://assets/front_card.png" id="5_sy11y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e24wk"]
+size = Vector2(92.5, 126)
+
+[node name="Card" type="Node2D" unique_id=24740057]
+script = ExtResource("1_6u4wf")
+
+[node name="FrontImage" type="Sprite2D" parent="." unique_id=2043587607]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ktuci")
+
+[node name="BackImage" type="Sprite2D" parent="." unique_id=772725978]
+z_index = 1
+scale = Vector2(0.0890625, 0.0887597)
+texture = ExtResource("1_d81rb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=779752356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1232090114]
+shape = SubResource("RectangleShape2D_e24wk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1075642708]
+libraries/ = ExtResource("4_kg30u")
+
+[node name="FrontImageBackground" type="Sprite2D" parent="." unique_id=1413056721]
+visible = false
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("5_sy11y")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

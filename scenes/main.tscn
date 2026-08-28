@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cee5ktte6qts3"]
+
+[ext_resource type="Script" uid="uid://bgt0q14oo00lp" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://uoeyyivjovht" path="res://scripts/card_manager.gd" id="2_0wfyh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
+bg_color = Color(0.13725491, 0.38431373, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
+bg_color = Color(0.05882353, 0.2901961, 0.49803922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sugp2"]
+bg_color = Color(0.11372549, 0.3529412, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jyhfs"]
+bg_color = Color(0.05882353, 0.2901961, 0.49803922, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Main" type="Node2D" unique_id=1118729831]
+script = ExtResource("1_o5qli")
+
+[node name="CardManager" type="Node2D" parent="." unique_id=1397852073]
+position = Vector2(186, 149)
+script = ExtResource("2_0wfyh")
+cards_per_row = 6
+pair_count = 9
+space_between_cols = 150
+space_between_rows = 180
+
+[node name="Control" type="Control" parent="." unique_id=1548050969]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 429.0
+offset_top = 261.0
+offset_right = 591.0
+offset_bottom = 358.0
+
+[node name="Button" type="Button" parent="Control" unique_id=1283974811]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.497
+anchor_top = 0.5
+anchor_right = 0.497
+anchor_bottom = 0.5
+offset_left = -81.51399
+offset_top = -47.5
+offset_right = 81.36399
+offset_bottom = 51.5
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tbgi4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sugp2")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_jyhfs")
+text = "Play Again"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
